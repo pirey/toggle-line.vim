@@ -16,12 +16,30 @@ function! s:is_shown() abort
     return get(s:, 'show', 0)
 endfunction
 
+function! s:is_tmux_running() abort
+    return $TMUX != ''
+endfunction
+
+function! s:show_tmuxline() abort
+    silent !tmux set -g status on
+endfunction
+
+function! s:hide_tmuxline() abort
+    silent !tmux set -g status off
+endfunction
+
 function! s:show_line() abort
+    if s:is_tmux_running()
+        call s:show_tmuxline()
+    endif
     let s:show = 1
     set laststatus=2 showtabline=2
 endfunction
 
 function! s:hide_line() abort
+    if s:is_tmux_running()
+        call s:hide_tmuxline()
+    endif
     let s:show = 0
     set laststatus=0 showtabline=0
 endfunction

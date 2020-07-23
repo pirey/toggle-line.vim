@@ -1,6 +1,12 @@
 # toggle-line.vim
 
-Press `<Space>ts` to toggle statusline and tabline on / off simultaneously.
+Hide vim statusline and tabline (and tmux statusline, if running inside tmux), because sometimes, their just get in our way.
+
+Or, we can display them again, because sometimes we love being distracted.
+
+## Usage
+
+Press `<Space>ts` to toggle statusline.
 
 See `:h toggle-line`.
 
