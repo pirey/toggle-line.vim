@@ -1,14 +1,14 @@
-# underscored.vim
+# toggle-line.vim
 
-Press `<C-G><Space>` in insert mode to swap space to underscore.
+Press `<Space>ts` to toggle statusline and tabline on / off simultaneously.
 
-![](demo.gif)
+See `:h toggle-line`.
 
 ## Installation
 
 Install using any vim plugin manager, or with vim-plug:
 
-    Plug 'pirey/underscored.vim'
+    Plug 'pirey/toggle-line.vim'
 
 Then run `:PlugInstall`
 
