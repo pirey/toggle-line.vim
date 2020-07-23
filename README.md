@@ -1,6 +1,6 @@
 # toggle-line.vim
 
-Hide vim statusline and tabline (and tmux statusline, if running inside tmux), because sometimes, their just get in our way.
+Hide vim statusline and tabline (and tmux statusline, if running inside tmux), because sometimes, they're just get in our way.
 
 Or, we can display them again, because sometimes we love being distracted.
 
