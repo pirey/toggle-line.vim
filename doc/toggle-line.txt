@@ -1,0 +1,20 @@
+*toggle-line.txt*  Toggle statusline and tabline
+
+Author:  Pirey <https://github.com/pirey>
+License: Same terms as Vim itself (see |license|)
+
+
+SUMMARY                                         *toggle-line*
+
+This plugin let you toggle statusline and tabline simultaneously.
+
+USAGE                                         *toggle-line-usage*
+
+You can call command :ToggleLine or use mapping, see |toggle-line-mapping|.
+
+
+MAPPING                                        *toggle-line-mapping*
+The default mapping is <Space>ts. <Plug>ToggleLine is provided if you would
+prefer to define your own maps.
+
+ vim:tw=78:et:ft=help:norl:
