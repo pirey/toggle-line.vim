@@ -4,6 +4,8 @@ Hide vim statusline and tabline (and tmux statusline, if running inside tmux), b
 
 Or, we can display them again, because sometimes we love being distracted.
 
+![](demo.gif)
+
 ## Usage
 
 Press `<Space>ts` to toggle statusline.
