@@ -21,25 +21,25 @@ function! s:is_tmux_running() abort
 endfunction
 
 function! s:show_tmuxline() abort
-    silent !tmux set -g status on
+    if s:is_tmux_running()
+        silent !tmux set -g status on
+    endif
 endfunction
 
 function! s:hide_tmuxline() abort
-    silent !tmux set -g status off
+    if s:is_tmux_running()
+        silent !tmux set -g status off
+    endif
 endfunction
 
 function! s:show_line() abort
-    if s:is_tmux_running()
-        call s:show_tmuxline()
-    endif
+    call s:show_tmuxline()
     let s:show = 1
     set laststatus=2 showtabline=2
 endfunction
 
 function! s:hide_line() abort
-    if s:is_tmux_running()
-        call s:hide_tmuxline()
-    endif
+    call s:hide_tmuxline()
     let s:show = 0
     set laststatus=0 showtabline=0
 endfunction
@@ -52,18 +52,40 @@ function! s:toggle() abort
     endif
 endfunction
 
+function! s:resume() abort
+    call s:main()
+endfunction
+
+function! s:main() abort
+    if s:is_shown()
+        call s:show_line()
+    else
+        call s:hide_line()
+    endif
+endfunction
+
 command! ToggleLine :call s:toggle()
 
-" init plugin state based on initial option
-if s:is_shown()
-    call s:show_line()
-else
-    call s:hide_line()
-endif
-
+" mapping {{{
 nnoremap <silent> <Plug>ToggleLine  :call <SID>toggle()<CR>
 
 if empty(mapcheck("<space>ts", "n"))
   nmap <space>ts <Plug>ToggleLine
 endif
+" }}}
 
+" autocmd {{{
+augroup toggle_line
+    autocmd!
+    autocmd VimLeave,VimSuspend * call s:show_tmuxline()
+    autocmd VimResume * call s:resume()
+
+    " TODO show tmux statusline when user move to another tmux pane or window
+    " FocusLost
+    " FocusGained
+augroup END
+" }}}
+
+" init {{{
+call s:main()
+" }}}
