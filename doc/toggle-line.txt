@@ -14,7 +14,12 @@ You can call command :ToggleLine or use mapping, see |toggle-line-mapping|.
 
 
 MAPPING                                        *toggle-line-mapping*
-The default mapping is <Space>ts. <Plug>ToggleLine is provided if you would
-prefer to define your own maps.
+The default mapping is <space>ts.
+
+You can define your own mapping with <Plug>ToggleLine, for example:
+>
+    nmap <space>tt <Plug>ToggleLine
+<
+
 
  vim:tw=78:et:ft=help:norl:
