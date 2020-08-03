@@ -53,6 +53,7 @@ function! s:toggle() abort
 endfunction
 
 function! s:resume() abort
+    " TODO add option to reset state on resume / focus gained
     call s:main()
 endfunction
 
@@ -77,12 +78,8 @@ endif
 " autocmd {{{
 augroup toggle_line
     autocmd!
-    autocmd VimLeave,VimSuspend * call s:show_tmuxline()
-    autocmd VimResume * call s:resume()
-
-    " TODO show tmux statusline when user move to another tmux pane or window
-    " FocusLost
-    " FocusGained
+    autocmd VimLeave,VimSuspend,FocusLost * call s:show_tmuxline()
+    autocmd VimResume,FocusGained * call s:resume()
 augroup END
 " }}}
 

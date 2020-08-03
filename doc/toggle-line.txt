@@ -8,6 +8,12 @@ SUMMARY                                         *toggle-line*
 
 This plugin let you toggle statusline and tabline simultaneously.
 
+INSTALLATION                                         *toggle-line-install*
+
+You can find the installation guide at https://github.com/pirey/toggle-line.vim
+
+But since you are here, I guess you already read that, right?
+
 USAGE                                         *toggle-line-usage*
 
 You can call command :ToggleLine or use mapping, see |toggle-line-mapping|.

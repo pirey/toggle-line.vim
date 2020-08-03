@@ -20,6 +20,16 @@ Install using any vim plugin manager, or with vim-plug:
 
 Then run `:PlugInstall`
 
+### Note for tmux users
+
+You need to add this option to your `~/.tmux.conf` to make this plugin work properly when moving between tmux windows:
+
+```
+set -g focus-events on
+```
+
+Setting the option above is usually enough, but in case that doesn't help, you should install [this plugin](https://github.com/tmux-plugins/vim-tmux-focus-events)
+
 ## License
 
 Copyright (c) Pirey.  Distributed under the same terms as Vim itself.
